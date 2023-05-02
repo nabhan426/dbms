@@ -1,0 +1,115 @@
+mysql> create database manoj;
+ERROR 1007 (HY000): Can't create database 'manoj'; database exists
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| nabhan             |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+7 rows in set (0.00 sec)
+
+mysql> use manoj;
+Database changed
+mysql> select database();
++------------+
+| database() |
++------------+
+| nabha      |
++------------+
+1 row in set (0.00 sec)
+
+mysql> create table student(reg_no int,name varchar(15),gender char(1),dob date,mobile_number int,city varchar(15));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> desc student;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| reg_no        | int         | YES  |     | NULL    |       |
+| name          | varchar(15) | YES  |     | NULL    |       |
+| gender        | char(1)     | YES  |     | NULL    |       |
+| dob           | date        | YES  |     | NULL    |       |
+| mobile_number | int         | YES  |     | NULL    |       |
+| city          | varchar(15) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+6 rows in set (0.03 sec)
+
+mysql> create database faculty;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create table faculty(facno varchar(4),facname varchar(15),gender char(1),dob date,doj date,mobileno int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facno    | varchar(4)  | YES  |     | NULL    |       |
+| facname  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| doj      | date        | YES  |     | NULL    |       |
+| mobileno | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> create database department;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create table department(deptno varchar(4),deptname varchar(15),depthead varchar(4));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| deptno   | varchar(4)  | YES  |     | NULL    |       |
+| deptname | varchar(15) | YES  |     | NULL    |       |
+| depthead | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> create database course;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> create table course(courseno varchar(4),coursedesc char(1),coursetype char(1),semno char(1),hallno varchar(4),facno varchar(4));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc course;
++------------+------------+------+-----+---------+-------+
+| Field      | Type       | Null | Key | Default | Extra |
++------------+------------+------+-----+---------+-------+
+| courseno   | varchar(4) | YES  |     | NULL    |       |
+| coursedesc | char(1)    | YES  |     | NULL    |       |
+| coursetype | char(1)    | YES  |     | NULL    |       |
+| semno      | char(1)    | YES  |     | NULL    |       |
+| hallno     | varchar(4) | YES  |     | NULL    |       |
+| facno      | varchar(4) | YES  |     | NULL    |       |
++------------+------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table faculty add deptno varchar(4);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facno    | varchar(4)  | YES  |     | NULL    |       |
+| facname  | varchar(15) | YES  |     | NULL    |       |
+| gender   | char(1)     | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
+| doj      | date        | YES  |     | NULL    |       |
+| mobileno | int         | YES  |     | NULL    |       |
+| deptno   | varchar(4)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
